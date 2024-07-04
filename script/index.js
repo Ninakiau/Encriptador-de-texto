@@ -16,6 +16,10 @@ btnEncriptar.addEventListener("click", (event) => {
     let newText = encriptar(text);
     //Mostramos el texto encriptado en el textarea
     document.getElementById("texto-encriptado").innerHTML = newText;
+    //Mostramos el resultado
+    // Mostrar la sección de resultado y ocultar la sección de no resultado
+    document.querySelector(".resultado").style.display = "flex";
+    document.querySelector(".not-resultado").style.display = "none";
     //Limpiamos el input
     document.getElementById("text").value = "";
   }
@@ -86,36 +90,36 @@ btnDesencriptar.addEventListener("click", (event) => {
 
 //Funcion para desencriptar
 function desencriptar(text) {
-    let newText = "";
-    for (let i = 0; i < text.length; i++) {
-      switch (text[i]) {
-        case "a":
-          newText += "a";
-          i += 1;
-          break;
-        case "e":
-          newText += "e";
-          i += 4;
-          break;
-        case "i":
-          newText += "i";
-          i += 3;
-          break;
-        case "o":
-          newText += "o";
-          i += 3;
-          break;
-        case "u":
-          newText += "u";
-          i += 3;
-          break;
-        default:
-          newText += text[i];
-          break;
-      }
+  let newText = "";
+  for (let i = 0; i < text.length; i++) {
+    switch (text[i]) {
+      case "a":
+        newText += "a";
+        i += 1;
+        break;
+      case "e":
+        newText += "e";
+        i += 4;
+        break;
+      case "i":
+        newText += "i";
+        i += 3;
+        break;
+      case "o":
+        newText += "o";
+        i += 3;
+        break;
+      case "u":
+        newText += "u";
+        i += 3;
+        break;
+      default:
+        newText += text[i];
+        break;
     }
-    return newText;
   }
+  return newText;
+}
 
 //Validamos que sólo se ingrese letras en minusculas y sin caracteres especiales.
 function validarInput(text) {
